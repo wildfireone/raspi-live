@@ -1,4 +1,25 @@
-# raspi-live
+# John's Dogey raspi-live hack 
+
+Run via commandline, the command line options further down will still work
+```
+  node cli.js start
+```
+
+
+##on the client machine
+
+browse to `<pi-ip-address>/camera/livestream.m3u8` to see the video
+the data stream is at `<pi-ip-address>/orientation` for the whole stream or `<pi-ip-address>/gyro` for just the gyro
+
+you can test the data stream by using curl at the terminal 
+e.g 
+```
+  curl http://192.168.2.6:8080/orientation
+```
+
+
+
+
 [![NPM](https://img.shields.io/npm/v/raspi-live.svg)](https://www.npmjs.com/package/raspi-live) [![Donate](https://img.shields.io/badge/donate-%E2%9D%A4-F33452.svg)](https://paypal.me/jaredtpetersen)
 
 raspi-live is a Node.js Express webserver that takes streaming video from the Raspberry Pi Camera module and makes it available on the web via [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) or [DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP).
