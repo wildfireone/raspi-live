@@ -1,20 +1,42 @@
 # John's Dogey raspi-live hack 
 
-Run via commandline, the command line options further down will still work
+
+##on the client machine i.e your Mac
+
+First find your pi's ip address - at the terminal type 
+```
+arp -a
+```
+this will give you all the details of the devices on the network you are connected to.
+
+Once you have the IP address you can connect to the pi using SSH - this gives you a shell terminal on the pi and allows you to run code on it directly - without needing to plug in a monitor
+
+```
+ssh pi@<pi-ip-address>
+```
+
+the password is `raspberry`
+
+
+##once ssh'ed into the pi on the terminal
+
+Run the video & data server via commandline, 
+```cd raspi-live```
+ then run 
 ```
   node cli.js start
 ```
+the command line options further down will still work if you want to play about with the video format
 
-
-##on the client machine
+##now back on your client mac
 
 browse to `<pi-ip-address>/camera/livestream.m3u8` to see the video
 the data stream is at `<pi-ip-address>/orientation` for the whole stream or `<pi-ip-address>/gyro` for just the gyro
 
-you can test the data stream by using curl at the terminal 
+you can test the data stream by using curl at a new terminal window
 e.g 
 ```
-  curl http://192.168.2.6:8080/orientation
+  curl http://<pi-ip-address>:8080/orientation
 ```
 
 
